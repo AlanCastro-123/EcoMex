@@ -22,18 +22,10 @@
                   <a href="#" class="nav-link text-white">Proyectos</a>
                 </li>
                 <li class="nav-item">
-                  <a href="general_ecocasa_view.php" class="nav-link text-white">Eco-casa</a>
+                  <a href="#" class="nav-link text-white">Eco-casa</a>
                 </li>
                 <li class="nav-item">
-                  <?php
-                    if (!isset($_SESSION['user']))
-                    {
-                      echo '<a href="#" class="nav-link text-white">Iniciar sesión</a>';
-                    }else{
-                      echo '<a href="#" class="nav-link text-white">Cerrar sesión</a>';
-                    }
-                  ?>
-                  
+                  <a href="#" class="nav-link text-white">Iniciar sesión</a>
                 </li>
             </ul>
         </div>
