@@ -255,7 +255,7 @@ body {
 <!--Delete modal -->
 <div id="id03" class="modal">
   
-  <form class="modal-content animate" action="deletepubeco.php" method="post">
+  <form class="modal-content animate" action="deletepubproy.php" method="post">
   <div class="imgcontainer">
   <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
   </div>
@@ -269,7 +269,7 @@ body {
   <h4>¿Desea eliminar la publicación seleccionada?</h4>
   <br>
   <button type="submit" class="aceptbtn">Aceptar</button>
-    <button type="button" class="cancelbtn" onclick="window.location.href='ecoadmin.php'">Cancelar</button>
+    <button type="button" class="cancelbtn" onclick="window.location.href='proyectadmin.php'">Cancelar</button>
 
   </div>
  </form>
@@ -385,6 +385,11 @@ body {
       while($mostrar=mysqli_fetch_array($result)){
  
       ?>
+        <?php 
+        
+        $rol=$mostrar['seccion'];
+        if($rol=='Proyectos'){
+        ?>
       
         <tr class="table-success">
         <td style="display:none;"><?php echo $mostrar['id_publicacion']?></td>
@@ -395,6 +400,7 @@ body {
         <td><button type="button" class="editbtn">  Ver</button></td>
         <td> <button type="button" class="elimtbtn" >Eliminar</button> </td>
 
+        <?php }?>
       </tr>
 
       <?php  } ?>

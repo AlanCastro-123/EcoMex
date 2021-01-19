@@ -74,6 +74,8 @@ body {
 }
 </style>
   <body>
+
+
   <nav class="navbar sticky-top navbar-expand-md navbar-light fondo-verde">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
       <span class="navbar-text">
@@ -110,6 +112,7 @@ body {
     </div>
 </nav>
 <div class="navbaro">
+
   <a href="#home">Bienvenido</a>
   <div class="subnav">
     <button class="subnavbtn" onclick="window.location.href='agregar.php'">Agregar Publicador <i class="fa fa-caret-down"></i></button>
@@ -129,8 +132,12 @@ body {
 </div>
 
 <div style="padding:0 16px">
+<br><br>
+    
   
   <h3 align="center">Bienvenido Administrador</h3>
+  <br><br>
+    <br>
   <center>
   <img src="img/logo.png" align="center" alt="LOGO" height="250px" width="250px">
 </center>
@@ -138,7 +145,9 @@ body {
 </div>
 
     <br>
-    <br>
+    <br><br>
+    <br><br>
+    
     <?php include 'templates/footer.php';?>
   </body>
 </html>

@@ -1,4 +1,16 @@
-<nav class="navbar sticky-top navbar-expand-md navbar-light fondo-verde">
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Eco-Mex</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/nuestros_estilos.css">
+    
+  </head>
+  <body>
+  <nav class="navbar sticky-top navbar-expand-md navbar-light fondo-verde">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
       <span class="navbar-text">
         <img src="img/logo.png" alt="LOGO" height="50px" width="50px">
@@ -25,9 +37,30 @@
                   <a href="#" class="nav-link text-white">Eco-casa</a>
                 </li>
                 <li class="nav-item">
-                  <a href="iniciosesion.php" class="nav-link text-white">Iniciar sesión</a>
+                  <a href="iniciosesion.php" class="nav-link text-white">Cerrar Sesion</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+    <br>
+    
+    <br>
+    <h2 align="center">Ecología en casa</h2>
+    <h4 align="center">Bienvenido Publicador</h4>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <?php include 'templates/footer.php';?>
+  </body>
+</html>

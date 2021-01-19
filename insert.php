@@ -19,6 +19,8 @@ $correo=$_POST["correo"];
 $psw=$_POST["psw"];
 $rol=$_POST["rol"];
 
+
+
 $sql = "INSERT INTO publicadores (nombre,apepat,apemat,sexo,correo,pass,rol)
 VALUES ('$nombre', '$apepat', '$apemat','$sexo','$correo','$psw','$rol')";
 

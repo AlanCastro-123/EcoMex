@@ -17,7 +17,7 @@ $id=$_POST["delete_id"];
 $sql = "DELETE FROM publicaciones WHERE id_publicacion=$id";
 
 if ($conn->query($sql) === TRUE) {
-  header("location:ecoadmin.php");
+  header("location:proyectadmin.php");
   echo "Record deleted successfully";
 } else {
   echo "Error deleting record: " . $conn->error;

@@ -255,7 +255,7 @@ body {
 <!--Delete modal -->
 <div id="id03" class="modal">
   
-  <form class="modal-content animate" action="deletepubproy.php" method="post">
+  <form class="modal-content animate" action="deletepubeco.php" method="post">
   <div class="imgcontainer">
   <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
   </div>
@@ -385,6 +385,12 @@ body {
       while($mostrar=mysqli_fetch_array($result)){
  
       ?>
+
+        <?php 
+        
+        $rol=$mostrar['seccion'];
+        if($rol=='Ecología en casa'){
+        ?>
       
         <tr class="table-success">
         <td style="display:none;"><?php echo $mostrar['id_publicacion']?></td>
@@ -394,7 +400,7 @@ body {
         <td><?php echo $mostrar['publicador']?></td>
         <td><button type="button" class="editbtn">  Ver</button></td>
         <td> <button type="button" class="elimtbtn" >Eliminar</button> </td>
-
+        <?php }?>
       </tr>
 
       <?php  } ?>

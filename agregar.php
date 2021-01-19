@@ -137,6 +137,18 @@ span.psw {
   }
 }
 
+.error{
+  background-color: #FF9185;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.correcto{
+  background-color: #A0DEA7;
+  font-size: 12px;
+  padding: 10px;
+}
+
 </style>
   <body>
   <nav class="navbar sticky-top navbar-expand-md navbar-light fondo-verde">
@@ -198,7 +210,68 @@ span.psw {
   
   <h3 align="center">Agregar Publicador</h3>
 
-  <form action="insert.php" method="post">
+  <form action="" method="post">
+    <?php 
+      if(isset($_POST['nombre'])){
+        $nombre=$_POST['nombre'];
+        $correo=$_POST['correo'];
+        $psw=$_POST['psw'];
+        $campos = array();
+        
+        if($nombre==""){
+          array_push($campos,"El campo Nombre no debe estar vacío");
+        }
+        if($psw== "" || strlen($psw)<2){
+          array_push($campos,"La contraseña debe tener mas de dos caracteres");
+        }
+        if($correo == "" || strpos($correo,"@")===false){
+          array_push($campos,"Ingresa un correo electrónico valido");
+        }
+        if(count($campos)>0){
+          echo"<div class='error'>";
+          for($i=0; $i<count($campos);$i++){
+            echo "<li>".$campos[$i]."</i>";
+          }
+        }else{
+          echo "<div class='correcto'> Datos correctos ";
+          $servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ecomex";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$nombre=$_POST["nombre"];
+$apepat=$_POST["apepat"];
+$apemat=$_POST["apemat"];
+$sexo=$_POST["sexo"];
+$correo=$_POST["correo"];
+$psw=$_POST["psw"];
+$rol=$_POST["rol"];
+
+
+$sql = "INSERT INTO publicadores (nombre,apepat,apemat,sexo,correo,pass,rol)
+VALUES ('$nombre', '$apepat', '$apemat','$sexo','$correo','$psw','$rol')";
+
+if ($conn->query($sql) === TRUE) {
+  
+  echo "Registro exitoso";
+
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+
+        }
+        echo "</div>";
+      }
+    ?>
 
   <div class="container">
     <label for="uname"><b>Nombre</b></label>
@@ -234,6 +307,8 @@ span.psw {
   
   </div>
 </form>
+
+
 
   
 </div>
