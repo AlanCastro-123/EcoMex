@@ -27,13 +27,10 @@ if(isset($_POST["submit"])){
                 header("Location: general_ecocasa_admin.php");
                 exit();
             }else{ 
-                $status = 'error'; 
-                $statusMsg = "File upload failed, please try again."; 
+                header("Location: error_ecocasa_admin.php");
+                exit(); 
             }  
-        }else{ 
-            $status = 'error'; 
-            $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
-        } 
+        }
     }else{ 
         $titulo = $_POST['titulo'];
         $detalle = $_POST['detalle'];
@@ -44,10 +41,9 @@ if(isset($_POST["submit"])){
             header("Location: general_ecocasa_admin.php");
             exit();
         }else{ 
-            $status = 'error'; 
-            $statusMsg = "File upload failed, please try again xD.".$sql; 
+            header("Location: error_ecocasa_admin.php");
+            exit(); 
         }  
     } 
 }
-echo $statusMsg;
 ?>

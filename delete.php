@@ -4,9 +4,10 @@
     $sql = "DELETE FROM publicaciones WHERE id=".$id;
     if (mysqli_query($db, $sql)) {
         mysqli_close($db);
-        header("Location: general_ecocasa_view.php");
+        header("Location: general_ecocasa_admin.php");
         exit();
     } else {
-        echo "Error deleting record: " . mysqli_error($db);
+        header("Location: error_ecocasa_admin.php");
+        exit();
     }
 ?>

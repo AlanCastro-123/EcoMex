@@ -6,7 +6,7 @@ require_once 'dbConfig.php';
 $status = $statusMsg = ''; 
 if(isset($_POST["submit"])){ 
     $status = 'success'; 
-    if(!empty($_FILES["image"]["name"])) { 
+    if(!empty($_FILES["image"]["name"]) && !empty($_POST['titulo']) && !empty($_POST['detalle'])) { 
         // Get file info 
         $fileName = basename($_FILES["image"]["name"]); 
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
@@ -26,16 +26,13 @@ if(isset($_POST["submit"])){
                 header("Location: general_ecocasa_admin.php");
                 exit();
             }else{ 
-                $status = 'error'; 
-                $statusMsg = "File upload failed, please try again."; 
+                header("Location: error_ecocasa_admin.php");
+                exit(); 
             }  
-        }else{ 
-            $status = 'error'; 
-            $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
-        } 
+        }
     }else{ 
-        $status = 'error'; 
-        $statusMsg = 'No se seleccionó imagen.'; 
+        header("Location: publicar_ecocasa_admin.php");
+        exit();
     } 
 }
 ?>
