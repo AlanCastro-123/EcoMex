@@ -1,7 +1,7 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "exu3u4");
-$sql = "SELECT * from `nadadores` WHERE id_nadador = '".$_GET['id_nadador']."'";
+$conn = mysqli_connect("localhost", "root", "", "ecoproyectos");
+$sql = "SELECT * from `proyectos` WHERE id = '".$_GET['id']."'";
 $result = mysqli_query($conn, $sql);
 $modi = mysqli_fetch_array($result);
 
@@ -17,6 +17,8 @@ $modi = mysqli_fetch_array($result);
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/nuestros_estilos.css">
+    <link rel="stylesheet" href="css/proyectos_estilos.css">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -28,28 +30,28 @@ $modi = mysqli_fetch_array($result);
 </head>
 
 <body>
+    <?php include 'templates/header.php'; ?>
     <div class="container">
-
-        <head>
-            <h1>Examen Unidades 3 y 4</h1>
-        </head>
-        <nav><h6>Bienvenido Carlos<input type="button" class="float-right" value="Regresar" onclick="location.href='administrador.php'"></input></h6></nav>
-        <div class="ora" style="padding-top: 50px;">
-            <div class="p_login">
-                <h2>Modificar</h2>
-                <form class="login" action="modi.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $_GET['id_nadador']?>">
-                        Nombre<br>
-                        <input type="text" name="nombre" name="txtnom" style="width: 200px;" value="<?php echo $modi['nombre'];?>"><br>
-                        Edad <br>
-                        <input type="text" name="edad" name="txtedad" style="width: 200px;" value="<?php echo $modi['edad'];?>"><br>
-                        Peso <br>
-                        <input type="text" name="peso" name="txtpeso" style="width: 200px;" value="<?php echo $modi['peso'];?>"><br><br>
-                        <input type="submit" class="btn btn-success" value="Modificar">
-                    </form>
+        <div style="padding-top: 50px;">
+            <div>
+                <form action="modi.php" method="POST" enctype="multipart/form-data">
+                    <input type="button" class="float-right btn btn-info" value="Regresar" onclick="location.href='proyectos.php'" style="margin-left: 10px;"></input>
+                    <input type="submit" class="float-right btn btn-success" value="Guardar Proyecto" ></input>
+                    <br><br>
+                    <input type="hidden" name="id" value="<?php echo $_GET['id']?>">
+                    Título del Proyecto<br><br>
+                    <input type="text" required name="titulo" name="txttit" style="width: 75%;" value="<?php echo $modi['titulo'];?>"><br><br>
+                    Descripción del Proyecto<br><br>
+                    <textarea name="descripcion" style="resize: none; width: 75%; height: 290px;"><?php echo $modi['descripcion'];?></textarea>
+                    <br><br>
+                    Imagen <br><br>
+                    <img src='data:image/jpg;charset=utf8;base64,<?php echo base64_encode($modi['imagen']) ?>' alt='Imagen noticia' class='img-modificar'><br><br>
+                    <input type="file" name="imagen" name="Imgimg" style="width: 200px;"><br><br>
+                </form>
             </div>
         </div>
     </div>
+    <?php include 'templates/footer.php'; ?>
 </body>
 
 </html>

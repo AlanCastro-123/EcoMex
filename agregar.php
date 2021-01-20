@@ -9,6 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/nuestros_estilos.css">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -20,23 +21,26 @@
 </head>
 
 <body>
+    <?php include 'templates/header.php'; ?>
     <div class="container">
         <div style="padding-top: 50px;">
             <div>
-                <form class="login" action="add.php" method="POST">
+                <form action="add.php" method="POST" enctype="multipart/form-data">
                     <input type="button" class="float-right btn btn-info" value="Regresar" onclick="location.href='proyectos.php'" style="margin-left: 10px;"></input>
-                    <input type="submit" class="float-right btn btn-success" value="Guardar" ></input>
+                    <input type="submit" class="float-right btn btn-success" value="Guardar Proyecto" ></input>
                     <br><br>
                     Título del Proyecto<br><br>
-                    <input type="text" name="titulo" name="txttit" style="width: 75%;"><br><br>
+                    <input type="text" required name="titulo" name="txttit" style="width: 75%;"><br><br>
                     Descripción del Proyecto<br><br>
-                    <input type="text" name="descripcion" name="txtdes" style="width: 75%; height: 45%;"><br><br>
+                    <textarea name="descripcion" style="resize: none; width: 75%; height: 290px;"></textarea>
+                    <br><br>
                     Imagen <br><br>
-                    <input type="image" name="imagen" name="Imgimg" style="width: 200px;"><br><br>
+                    <input type="file" required name="imagen" name="Imgimg" style="width: 200px;"><br><br>
                 </form>
             </div>
         </div>
     </div>
+    <?php include 'templates/footer.php'; ?>
 </body>
 
 </html>

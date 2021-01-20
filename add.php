@@ -2,7 +2,9 @@
 
 $conn = mysqli_connect("localhost", "root", "", "ecoproyectos");
 
-add($_POST['titulo'],$_POST['descripcion'],$_POST['imagen']);
+$Bimg = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
+
+add($_POST['titulo'],$_POST['descripcion'], $Bimg);
 
 function add($tit, $des, $img)
 {

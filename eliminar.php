@@ -1,18 +1,18 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "exu3u4");
+$conn = mysqli_connect("localhost", "root", "", "ecoproyectos");
 
-delete($_GET['id_nadador']);
+delete($_GET['id']);
 
 function delete($id)
 {
-    $conn = mysqli_connect("localhost", "root", "", "exu3u4");
-    $sql = "DELETE FROM `nadadores` WHERE `id_nadador` = '" . $id . "'";
+    $conn = mysqli_connect("localhost", "root", "", "ecoproyectos");
+    $sql = "DELETE FROM `proyectos` WHERE `id` = '" . $id . "'";
     mysqli_query($conn, $sql);
 }
 ?>
 
 <script type="text/javascript">
-    alert("Nadador eliminado exitosamente");
-    window.location.href = 'administrador.php';
+    alert("Proyecto eliminado exitosamente");
+    window.location.href = 'proyectos.php';
 </script>

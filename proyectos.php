@@ -9,6 +9,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/nuestros_estilos.css">
+    <link rel="stylesheet" href="css/proyectos_estilos.css">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -29,6 +31,7 @@
 </head>
 
 <body>
+    <?php include 'templates/header.php'; ?>
     <div class="container">
 
         <head>
@@ -39,17 +42,18 @@
         </nav>
         <div style="padding-top: 50px;">
             <div style="padding: 50px;">
-                <table style="width: 1500px;">
+                <table style="width: 1300px;">
                     <?php
                     $conn = mysqli_connect("localhost", "root", "", "ecoproyectos");
                     $sql = "SELECT * from `proyectos`";
                     $result = mysqli_query($conn, $sql);
                     while ($mos = mysqli_fetch_array($result)) {
                         echo "<tr>
-                    <td>" . $mos[''] . "</td>
+                    <td><img src='data:image/jpg;charset=utf8;base64,". base64_encode($mos['imagen']) ."' alt='Imagen noticia' class='img-cuadrada'></td>
                     <td>" . $mos['titulo'] . "</td>
-                    <td><a href='modificar.php?id_nadador=" . $mos['id'] . "'><button type='button' class='btn btn-success' style='width: auto;'>Modificar</button></a>
-                    <a href='eliminar.php?id_nadador=" . $mos['id'] . "'><button type='button' class='btn btn-danger' style='width: auto;'>Eliminar</button></a></td></tr>";
+                    <td><a href='ver.php?id=" . $mos['id'] . "'><button type='button' class='btn btn-info' style='width: auto;'>Ver Detalles</button></a>
+                    <a href='modificar.php?id=" . $mos['id'] . "'><button type='button' class='btn btn-success' style='width: auto;'>Modificar</button></a>
+                    <a href='eliminar.php?id=" . $mos['id'] . "'><button type='button' class='btn btn-danger' style='width: auto;'>Eliminar</button></a></td></tr>";
                     }
                     echo "</table>";
                     ?>
@@ -57,6 +61,7 @@
             </div>
         </div>
     </div>
+    <?php include 'templates/footer.php'; ?>
 </body>
 
 </html>
