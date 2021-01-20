@@ -28,7 +28,7 @@
                   <?php
                     if (!isset($_SESSION['user']))
                     {
-                      echo '<a href="#" class="nav-link text-white">Iniciar sesión</a>';
+                      echo '<a href="iniciosesion.php" class="nav-link text-white">Iniciar sesión</a>';
                     }else{
                       echo '<a href="#" class="nav-link text-white">Cerrar sesión</a>';
                     }

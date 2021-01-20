@@ -11,33 +11,46 @@
     
   </head>
   <body>
-    <?php include 'templates/header.php';?>
+    <?php 
+    include 'templates/header.php';
+    require_once 'dbConfig.php';
+    ?>
     
+    <?php 
+        $id = $_GET["id"];
+    ?>
     <div class="container-fluid" style="padding-left: 2em; padding-top:1em;">
         <div class="row">
+            <?php 
+                $query = mysqli_query($db, "SELECT titulo,detalle,nombre_autor,apellido_autor,fecha,img from publicaciones WHERE id = $id");
+                $titulo; 
+                $detalle; 
+                $nombre;
+                $apellido;
+                $fecha;
+                $img;    
+                    while($fila = mysqli_fetch_array($query)){
+                        $titulo = $fila['titulo']; 
+                        $detalle = $fila['detalle']; ; 
+                        $nombre = $fila['nombre_autor']; ;
+                        $apellido = $fila['apellido_autor']; ;
+                        $fecha = $fila['fecha']; ;
+                        $img = $fila['img']; ; 
+                    }
+            ?>
             <div class="col-sm-12 col-md-2 col-lg-4">
-                <img src="img/maceta.jpg" alt="Imagen noticia" class="img-cuadrada">
+                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($img); ?>" alt="Imagen noticia" class="img-cuadrada">
             </div>
             <div class="col-sm-12 col-md-10 col-lg-8">
                 <div class="row detalles">
                     <div class="col-md">
                         <div class="titulo-centrado">
-                            <h1>¡La mejor forma de cuidar a tus plantas!</h1>
-                            <h4>por Brian Alan Castro Altamirano a 11 de enero de 2021.</h4>
+                            <h1><?php echo $titulo; ?></h1>
+                            <h4>por <?php echo $nombre." ".$apellido. " a " .$fecha ?></h4>
                         </div>
                         <hr>
                         <div class="texto-descripcion">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi veritatis at modi ullam consectetur nam, harum pariatur molestias rerum qui odio laborum aut voluptate cupiditate quidem, rem, quas repudiandae fugiat?
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio aspernatur consequatur sunt minima natus? Eaque aspernatur vero libero, eos tempore perspiciatis! Aperiam accusamus veniam iure nam ratione. Voluptatem, dolores quod.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus a sunt pariatur maxime illum nulla quos alias cupiditate temporibus adipisci laudantium dolorem, accusantium perspiciatis! Numquam quam cumque repellendus voluptas doloribus.
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla voluptatibus accusamus doloremque ea enim asperiores reiciendis vel tempore minima non et laborum molestiae, unde ex temporibus ratione, aut, molestias dolore.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus libero obcaecati id vitae, assumenda excepturi consequuntur? Unde, enim natus, dolores ea libero ratione dignissimos facilis dolorum quod voluptatibus aspernatur totam.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis cumque hic odio iusto non ea optio, voluptas nisi recusandae perferendis pariatur modi laborum? Odit delectus omnis animi officia tempore non.
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam ad dolore architecto necessitatibus dicta soluta laboriosam qui ut facere exercitationem officia, iure totam mollitia rem tenetur quae laudantium delectus alias!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati iste placeat cum. Impedit cumque odit dolores. Eaque distinctio deleniti suscipit tenetur eveniet alias quis, aliquid quasi, laborum doloremque quas aperiam.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos mollitia quisquam cum ipsum harum minus sequi nam asperiores ullam sint ipsa aliquam unde voluptates blanditiis incidunt, nihil quidem inventore expedita!
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae recusandae a perspiciatis libero, commodi esse nulla quam voluptas obcaecati dicta cumque nobis soluta, dolorum, sunt blanditiis eum praesentium reiciendis porro?
-
+                            <?php echo $detalle ?>
                         </div>
                     </div>
                 </div>

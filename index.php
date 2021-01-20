@@ -13,7 +13,7 @@
     <?php include 'templates/header.php';?>
     <br>
     <?php 
-      session_start();
+      
     ?>
     <br>
     <?php include 'templates/footer.php';?>

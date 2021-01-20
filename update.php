@@ -4,6 +4,7 @@ require_once 'dbConfig.php';
  
 // If file upload form is submitted 
 $status = $statusMsg = ''; 
+$id = $_POST["id"];
 if(isset($_POST["submit"])){ 
     $status = 'success'; 
     if(!empty($_FILES["image"]["name"])) { 
@@ -19,7 +20,7 @@ if(isset($_POST["submit"])){
             $titulo = $_POST['titulo'];
             $detalle = $_POST['detalle'];
             // Insert image content into database 
-            $insert = $db->query("INSERT into publicaciones (titulo, detalle, nombre_autor, apellido_autor, fecha, img) VALUES ('$titulo','$detalle','Alan','Castro','19/01/2021','$imgContent')"); 
+            $insert = $db->query("UPDATE publicaciones SET titulo='".$titulo."', detalle=".$detalle.", img=".$imgContent." WHERE id=".$id); 
              
             if($insert){ 
                 mysqli_close($db);
@@ -34,8 +35,19 @@ if(isset($_POST["submit"])){
             $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
         } 
     }else{ 
-        $status = 'error'; 
-        $statusMsg = 'No se seleccionó imagen.'; 
+        $titulo = $_POST['titulo'];
+        $detalle = $_POST['detalle'];
+        // Insert image content into database 
+        $sql = "UPDATE publicaciones SET titulo='".$titulo."', detalle='".$detalle."' WHERE id=".$id;
+        if(mysqli_query($db, $sql)){ 
+            mysqli_close($db);
+            header("Location: general_ecocasa_admin.php");
+            exit();
+        }else{ 
+            $status = 'error'; 
+            $statusMsg = "File upload failed, please try again xD.".$sql; 
+        }  
     } 
 }
+echo $statusMsg;
 ?>

@@ -18,7 +18,7 @@
     <?php 
       if (!isset($_SESSION['rol']))
       {
-        $_SESSION['rol'] = 1;
+        $_SESSION['rol'] = 0;
       }
     ?>
     <div class="container-fluid" style="padding-left: 2em; padding-top:1em;">
@@ -38,7 +38,7 @@
             echo '<h1 class="titulo">'.($fila['titulo']).'</h1>';
             if ($_SESSION['rol'] == 0){
               echo '<div class="botones">';
-              echo '<button type="button" class="btn btn-warning">Editar</button>';
+              echo '<button type="button" class="btn btn-warning editar" data-id="'.($fila['id']).'">Editar</button>';
               echo '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm-delete" data-href="delete.php?id='.($fila['id']).'">Borrar</button>';
               echo '</div>';
             }

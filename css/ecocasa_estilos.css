@@ -5,7 +5,7 @@
   padding-right: 2em;
 }
 .publicacion{
-  background-color: rgb(226, 221, 221);
+  background-color: rgb(247, 241, 241);
   padding-top: 1em;
   padding-left: 0.5em;
 }
@@ -21,10 +21,22 @@
   float: right;
   display: inline;
 }
+
+.boton-der{
+  
+  float: right;
+  display: inline;
+}
+
 .img-cuadrada{
   border-radius: 25%;
   width: 400px; 
   height: 550px;
+}
+.img-edit{
+  border-radius: 25%;
+  width: 450px; 
+  height: 500px;
 }
 .detalles{
   height: 470px;
