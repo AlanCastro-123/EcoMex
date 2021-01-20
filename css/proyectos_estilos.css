@@ -1,0 +1,19 @@
+.img-cuadrada{
+    height: 150px;
+    width: 150px;
+}
+
+.img-modificar{
+    height: 250px;
+    width: 250px;
+}
+
+.img-ver{
+    width: 65%;
+    margin: 10px 50px;
+}
+
+.btn_pos{
+    width: 65%;
+    margin: 10px 50px;
+}
